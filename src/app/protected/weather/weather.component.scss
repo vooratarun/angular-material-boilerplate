@@ -1,0 +1,93 @@
+.weather-page {
+  display: grid;
+  gap: 16px;
+}
+
+.weather-card {
+  border-radius: 12px;
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.label {
+  opacity: 0.75;
+  margin: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.updated {
+  margin-top: 4px;
+  opacity: 0.75;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.weather-main {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.temperature-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.condition-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+.metrics {
+  display: flex;
+  align-items: center;
+}
+
+.forecast-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.forecast-item {
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 960px) {
+  .forecast-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .forecast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

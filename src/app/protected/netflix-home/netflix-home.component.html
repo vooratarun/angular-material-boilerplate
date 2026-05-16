@@ -1,0 +1,56 @@
+<section class="netflix-page">
+  <mat-card class="hero" appearance="outlined">
+    <mat-card-content>
+      <p class="brand">NOW STREAMING</p>
+      <h1>{{ featured.title }}</h1>
+      <p class="description">{{ featured.description }}</p>
+
+      <div class="meta-row">
+        <mat-chip-set>
+          <mat-chip>{{ featured.year }}</mat-chip>
+          <mat-chip>{{ featured.maturity }}</mat-chip>
+          <mat-chip>{{ featured.length }}</mat-chip>
+        </mat-chip-set>
+      </div>
+
+      <div class="hero-actions">
+        <button mat-raised-button color="primary" type="button">
+          <mat-icon>play_arrow</mat-icon>
+          Play
+        </button>
+        <button mat-stroked-button type="button">
+          <mat-icon>info</mat-icon>
+          More Info
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="category-row">
+    @for (category of categories; track category) {
+      <button
+        mat-stroked-button
+        type="button"
+        [class.active]="selectedCategory === category"
+        (click)="selectCategory(category)">
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <section>
+    <h2>Popular On StreamFlix</h2>
+    <div class="poster-grid">
+      @for (show of visibleShows; track show.id) {
+        <mat-card class="poster-card" appearance="outlined">
+          <div class="poster" [ngStyle]="{ background: show.poster }"></div>
+          <mat-card-content>
+            <h3 style="color: black">{{ show.title }}</h3>
+            <p style="color: black">{{ show.genre }} • {{ show.year }} • {{ show.maturity }}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  </section>
+</section>
+

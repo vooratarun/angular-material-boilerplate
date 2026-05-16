@@ -1,0 +1,44 @@
+.todo-card {
+  max-width: 760px;
+  margin: 20px auto;
+}
+
+.todo-form {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.todo-input {
+  flex: 1;
+}
+
+.todo-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+.todo-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.empty-state {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.8;
+}
+

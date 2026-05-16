@@ -1,0 +1,35 @@
+<section class="youtube-home">
+  <mat-button-toggle-group
+    class="filter-bar"
+    [value]="selectedFilter"
+    aria-label="Video categories"
+  >
+    @for (filter of filters; track filter) {
+      <mat-button-toggle [value]="filter" (click)="updateFilter(filter)">
+        {{ filter }}
+      </mat-button-toggle>
+    }
+  </mat-button-toggle-group>
+
+  <div class="video-grid">
+    @for (video of filteredVideos; track video.id) {
+      <mat-card class="video-card" appearance="outlined">
+        <div class="thumbnail" [ngStyle]="{ background: video.thumbnail }">
+          <span class="duration">{{ video.duration }}</span>
+        </div>
+
+        <mat-card-content>
+          <div class="video-meta">
+            <mat-icon class="channel-avatar">account_circle</mat-icon>
+            <div>
+              <h3>{{ video.title }}</h3>
+              <p>{{ video.channel }}</p>
+              <p>{{ video.views }} • {{ video.uploaded }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</section>
+

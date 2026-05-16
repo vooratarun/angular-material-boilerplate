@@ -47,6 +47,51 @@ export const routes: Routes = [
                 loadChildren: () => import('./protected/address-form/address-form.routes')
             },
             {
+                path: 'material-demo',
+                title: 'Material Demo',
+                data: {
+                    icon: 'widgets',
+                    title: 'Material Demo'
+                },
+                loadChildren: () => import('./protected/material-demo/material-demo.routes')
+            },
+            {
+                path: 'netflix-home',
+                title: 'Netflix UI',
+                data: {
+                    icon: 'movie',
+                    title: 'Netflix UI'
+                },
+                loadChildren: () => import('./protected/netflix-home/netflix-home.routes')
+            },
+            {
+                path: 'weather',
+                title: 'Weather',
+                data: {
+                    icon: 'wb_sunny',
+                    title: 'Weather'
+                },
+                loadChildren: () => import('./protected/weather/weather.routes')
+            },
+            {
+                path: 'youtube-home',
+                title: 'YouTube Home',
+                data: {
+                    icon: 'smart_display',
+                    title: 'YouTube Home'
+                },
+                loadChildren: () => import('./protected/youtube-home/youtube-home.routes')
+            },
+            {
+                path: 'todo',
+                title: 'Todo',
+                data: {
+                    icon: 'checklist',
+                    title: 'Todo'
+                },
+                loadChildren: () => import('./protected/todo/todo.routes')
+            },
+            {
                 path: 'tree',
                 title: 'Tree',
                 data: {

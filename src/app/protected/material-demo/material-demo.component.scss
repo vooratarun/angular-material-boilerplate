@@ -1,0 +1,101 @@
+.material-demo-page {
+  display: grid;
+  gap: 16px;
+  position: relative;
+}
+
+.demo-toolbar {
+  border-radius: 10px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+mat-radio-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-label {
+  margin: 10px 0 8px;
+  font-weight: 500;
+}
+
+.state-text {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.table-wrapper {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.mini-sidenav-demo {
+  margin-top: 12px;
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 8px;
+  min-height: 180px;
+}
+
+.drawer-content {
+  padding: 16px;
+  opacity: 0.9;
+}
+
+.spinner-row {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.expansion-card {
+  grid-column: 1 / -1;
+}
+
+.content-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fab {
+    right: 20px;
+    bottom: 20px;
+  }
+}

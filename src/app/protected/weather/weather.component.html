@@ -1,0 +1,70 @@
+<section class="weather-page">
+  <mat-card class="weather-card current-weather" appearance="outlined">
+    <mat-card-content>
+      <div class="weather-header">
+        <div>
+          <p class="label">Current Weather</p>
+          <h2>{{ currentWeather.city }}, {{ currentWeather.country }}</h2>
+          <p class="updated">Updated {{ currentWeather.updatedAt | date:'shortTime' }}</p>
+        </div>
+
+        <div class="actions">
+          <mat-form-field appearance="outline" subscriptSizing="dynamic">
+            <mat-label>City</mat-label>
+            <mat-select [(value)]="selectedCity">
+              @for (city of cities; track city) {
+                <mat-option [value]="city">{{ city }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <button mat-stroked-button type="button" (click)="useMyLocation()">
+            <mat-icon>my_location</mat-icon>
+            Use My Location
+          </button>
+        </div>
+      </div>
+
+      <div class="weather-main">
+        <div class="temperature-block">
+          <mat-icon class="condition-icon material-symbols-outlined">{{ currentWeather.conditionIcon }}</mat-icon>
+          <div>
+            <h1>{{ currentWeather.temperature }}&deg;C</h1>
+            <p>{{ currentWeather.condition }}</p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <mat-chip-set>
+            <mat-chip>Feels like {{ currentWeather.feelsLike }}&deg;C</mat-chip>
+            <mat-chip>
+              <mat-icon matChipAvatar>water_drop</mat-icon>
+              Humidity {{ currentWeather.humidity }}%
+            </mat-chip>
+            <mat-chip>
+              <mat-icon matChipAvatar>air</mat-icon>
+              Wind {{ currentWeather.wind }} km/h
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="weather-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>5-Day Forecast</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="forecast-grid">
+        @for (item of currentWeather.forecast; track item.day) {
+          <div class="forecast-item">
+            <p>{{ item.day }}</p>
+            <mat-icon class="material-symbols-outlined">{{ item.icon }}</mat-icon>
+            <p>{{ item.high }}&deg; / {{ item.low }}&deg;</p>
+          </div>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+
