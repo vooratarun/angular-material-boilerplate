@@ -47,6 +47,24 @@ export const routes: Routes = [
                 loadChildren: () => import('./protected/address-form/address-form.routes')
             },
             {
+                path: 'tailwind-demo',
+                title: 'Tailwind Demo',
+                data: {
+                    icon: 'style',
+                    title: 'Tailwind Demo'
+                },
+                loadChildren: () => import('./protected/tailwind-demo/tailwind-demo.routes')
+            },
+            {
+                path: 'ecommerce-tailwind',
+                title: 'E-Commerce Tailwind',
+                data: {
+                    icon: 'shopping_bag',
+                    title: 'E-Commerce Tailwind'
+                },
+                loadChildren: () => import('./protected/ecommerce-tailwind/ecommerce-tailwind.routes')
+            },
+            {
                 path: 'material-demo',
                 title: 'Material Demo',
                 data: {

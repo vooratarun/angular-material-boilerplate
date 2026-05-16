@@ -1,0 +1,129 @@
+<div class="min-h-screen bg-gray-950 text-gray-100 p-6 space-y-6">
+
+  <!-- Header -->
+  <header class="flex items-center justify-between">
+    <div>
+      <h1 class="text-3xl font-bold text-white">Dashboard</h1>
+      <p class="text-gray-400 mt-1 text-sm">Welcome back — here's what's happening today.</p>
+    </div>
+    <div class="flex items-center gap-3 ">
+      <button class="relative bg-gray-800 hover:bg-gray-700 transition px-4 py-2 rounded-xl text-sm font-medium">
+        🔔 Notifications
+        @if (unreadCount > 0) {
+          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+            {{ unreadCount }}
+          </span>
+        }
+      </button>
+      <div class="w-9 h-9 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-semibold text-sm">A</div>
+    </div>
+  </header>
+
+  <!-- Stat Cards -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    @for (stat of stats; track stat.label) {
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-5 flex flex-col gap-3 hover:border-indigo-500 transition">
+        <div class="flex items-center justify-between">
+          <p class="text-gray-400 text-sm">{{ stat.label }}</p>
+          <span class="text-2xl">{{ stat.icon }}</span>
+        </div>
+        <p class="text-2xl font-bold text-white">{{ stat.value }}</p>
+        <p [class]="stat.positive ? 'text-green-400' : 'text-red-400'" class="text-sm font-medium">
+          {{ stat.change }} from last month
+        </p>
+      </div>
+    }
+  </section>
+
+  <!-- Main Content Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Skill Bars -->
+    <div class="lg:col-span-1 bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-5">
+      <h2 class="text-lg font-semibold text-white">Tech Stack Proficiency</h2>
+      @for (skill of skills; track skill.name) {
+        <div class="space-y-1">
+          <div class="flex justify-between text-sm">
+            <span class="text-gray-300">{{ skill.name }}</span>
+            <span class="text-indigo-400 font-medium">{{ skill.level }}%</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-2">
+            <div
+              class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-700"
+              [style.width.%]="skill.level">
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Notifications -->
+    <div class="lg:col-span-2 bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-white">Recent Notifications</h2>
+        <button
+          class="text-xs text-indigo-400 hover:text-indigo-300 font-medium transition"
+          (click)="markAllRead()">
+          Mark all read
+        </button>
+      </div>
+
+      <ul class="space-y-3">
+        @for (notif of notifications; track notif.id) {
+          <li class="flex items-start gap-3 p-3 rounded-xl transition"
+              [class]="notif.read ? 'bg-gray-800/50' : 'bg-indigo-500/10 border border-indigo-500/20'">
+            <span class="mt-0.5 w-2 h-2 rounded-full flex-shrink-0"
+                  [class]="notif.read ? 'bg-gray-600' : 'bg-indigo-400'">
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm text-gray-200 truncate">{{ notif.text }}</p>
+              <p class="text-xs text-gray-500 mt-0.5">{{ notif.time }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Feature Cards Row -->
+  <section class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-2xl p-6 space-y-3">
+      <div class="text-3xl">🚀</div>
+      <h3 class="font-semibold text-white">Deploy Project</h3>
+      <p class="text-indigo-200 text-sm">Push your latest build to the production environment.</p>
+      <button class="mt-2 bg-white text-indigo-700 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-indigo-50 transition">
+        Deploy Now
+      </button>
+    </div>
+
+    <div class="bg-gradient-to-br from-purple-600 to-purple-900 rounded-2xl p-6 space-y-3">
+      <div class="text-3xl">📊</div>
+      <h3 class="font-semibold text-white">View Analytics</h3>
+      <p class="text-purple-200 text-sm">Explore real-time usage metrics and audience data.</p>
+      <button class="mt-2 bg-white text-purple-700 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-purple-50 transition">
+        Open Reports
+      </button>
+    </div>
+
+    <div class="bg-gradient-to-br from-emerald-600 to-teal-800 rounded-2xl p-6 space-y-3">
+      <div class="text-3xl">🛡️</div>
+      <h3 class="font-semibold text-white">Security Scan</h3>
+      <p class="text-emerald-200 text-sm">Run a full vulnerability scan on your application stack.</p>
+      <button class="mt-2 bg-white text-emerald-700 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
+        Start Scan
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 pt-4 flex items-center justify-between text-xs text-gray-500">
+    <span>© 2026 BulletproofAngular — Built with Tailwind CSS + Angular Material</span>
+    <div class="flex gap-4">
+      <a href="#" class="hover:text-gray-300 transition">Docs</a>
+      <a href="#" class="hover:text-gray-300 transition">Privacy</a>
+      <a href="#" class="hover:text-gray-300 transition">Support</a>
+    </div>
+  </footer>
+
+</div>
+

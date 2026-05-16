@@ -1,8 +1,8 @@
 {
   "name": "bulletproof-angular",
   "version": "1.0.0",
-    "description": "A simple Angular material 3 starter project",
-    "scripts": {
+  "description": "A simple Angular material 3 starter project",
+  "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:prod": "ng serve --configuration production",
@@ -36,13 +36,17 @@
     "@angular-devkit/build-angular": "^18.2.4",
     "@angular/cli": "^18.2.4",
     "@angular/compiler-cli": "^18.2.0",
+    "@tailwindcss/postcss": "^4.3.0",
     "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.5.0",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^3.4.19",
     "typescript": "~5.5.2"
   }
 }
